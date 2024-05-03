@@ -1,2 +1,3 @@
 from .single_attention import SingleHeadAttention
 from .multihead_attention import MultiHeadAttention
+from .bidirectional_attention import BidirectionalAttention
