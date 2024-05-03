@@ -2,3 +2,4 @@ from .single_attention import SingleHeadAttention
 from .multihead_attention import MultiHeadAttention
 from .bidirectional_attention import BidirectionalAttention
 from .causal_attention import CausalAttention
+from .cross_attention import CauselCrossAttention
