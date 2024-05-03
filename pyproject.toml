@@ -11,6 +11,8 @@ python = "^3.9"
 cookiecutter = "^2.6.0"
 torch = "^2.3.0"
 dvc = "^3.50.1"
+pytest = "^8.2.0"
+pytest-cases = "^3.8.5"
 
 
 [build-system]
