@@ -23,7 +23,7 @@ def test_forward(get_model):
     input_seq = 10
     input_dim = model.hidden_size
     x = torch.randn(batch_size, input_seq, input_dim)
-    output = model(x)
+    _,output = model(x)
     # model.hidden_size = hidden_size
     # output = model(x)
     

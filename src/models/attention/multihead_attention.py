@@ -1,7 +1,7 @@
 from torch import nn,Tensor
-from torch.nn import Module
+from .attention import Attention
 from math import sqrt
-class MultiHeadAttention(Module):
+class MultiHeadAttention(Attention):
     def __init__(self,
                  hidden_size:int,
                  num_heads:int,
@@ -37,7 +37,8 @@ class MultiHeadAttention(Module):
         x = self_atten.transpose(2,1) # batch,in_seq,Num_Heads,in_dim//self.num_heads
         x = x.reshape(batch_size,in_seq,in_dim)
         # pass the input the projected layer
-        return self.project_layer(x)
+        q = query.transpose(2,1).reshape(batch_size,in_seq,in_dim)
+        return q,self.project_layer(x)
     
 
 
