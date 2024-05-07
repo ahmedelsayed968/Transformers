@@ -1,8 +1,8 @@
-from torch.nn import Module
+from .attention import Attention
 from torch import nn,Tensor
 import torch
 from math import sqrt
-class CauselCrossAttention(Module):
+class CauselCrossAttention(Attention):
     def __init__(self, 
                     hidden_size: int,
                     num_heads: int,
@@ -55,5 +55,7 @@ class CauselCrossAttention(Module):
         x = scores @ value
         x = x.transpose(1,2)
         x = x.reshape(batch_size,in_seq,in_dim)
-        return self.out_drop(self.project_layer(x))
+        q = query.transpose(2,1).reshape(batch_size,in_seq,in_dim)
+
+        return q,self.out_drop(self.project_layer(x))
     

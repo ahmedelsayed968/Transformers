@@ -27,7 +27,7 @@ def test_forward(get_model):
     mask = torch.zeros(size=(batch_size,input_seq), dtype=torch.bool)
     x = torch.randn(batch_size, input_seq, input_dim)
     y = torch.randn(batch_size, input_seq, input_dim)
-    output = model(x,y,mask)
+    _,output = model(x,y,mask)
     # model.hidden_size = hidden_size
     # output = model(x)
     

@@ -42,4 +42,5 @@ class CausalAttention(BidirectionalAttention):
         x = x.transpose(1,2)
         # 2. Reshape to the origina dim of x
         x = x.reshape(batch_size,in_seq,in_dim)
-        return self.out_drop(self.project_layer(x))
+        q = query.transpose(2,1).reshape(batch_size,in_seq,in_dim)
+        return q,self.out_drop(self.project_layer(x))

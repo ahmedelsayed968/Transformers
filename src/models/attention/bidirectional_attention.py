@@ -41,7 +41,8 @@ class BidirectionalAttention(MultiHeadAttention):
         x = self_atten.transpose(2,1) # batch,in_seq,Num_Heads,in_dim//self.num_heads
         x = x.reshape(batch_size,in_seq,in_dim)
         # pass the input the projected layer
-        return self.out_drop(self.project_layer(x))
+        q = query.transpose(2,1).reshape(batch_size,in_seq,in_dim)
+        return q,self.out_drop(self.project_layer(x))
     
 
 
