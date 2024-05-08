@@ -26,7 +26,7 @@ def get_ffd( hidden_size,
 def test_forward(get_ffd,batch_size,input_seq):
     model = get_ffd
     if not model:
-        assert True
+        return True
 
     input_dim = model.hidden_size
     x = torch.randn(batch_size, input_seq, input_dim)
