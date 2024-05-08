@@ -50,7 +50,6 @@ jobs:
             - name: 'Install dependencies'
               if: steps.cached-poetry-dependencies.outputs.cache-hit != 'true'
               run: |
-                rm poetry.lock || echo "Poetry.lock not existing"
                 poetry install --no-interaction --no-root
             
             #----------------------------------------------
